@@ -7,10 +7,18 @@ body {
 
 .test {
   font-size : 20px;
+ 
 }
 .header {
   padding-top: .2em;
-  padding-bottom: .2em;
+  padding-bottom: 50px;
   border: 1px solid #a2a2a2;
   background-color : red;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form {
+
+
 }
