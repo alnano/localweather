@@ -3,6 +3,8 @@ const axios = require('axios');
 const Link = require('react-router-dom').Link;
 const get = require('../components/api')
 const Forcast = require('../components/Forcast')
+const queryString = require('query-string')
+const CurrentForcast = require('../components/CurrentForcast');
 
 
 class Header extends React.Component {
@@ -46,7 +48,7 @@ class Header extends React.Component {
           <input value={this.state.value} onChange={this.locationChange} type='text' />
          
         </form>
-        <Link className='button' to={{pathname: '/forcast', search: this.state.location}} onClick={this.searchWeather}>
+        <Link className='button' to={{pathname: '/forcast', search:`?location=${this.state.location}`}} onClick={this.searchWeather}>
           test
         </Link>
       </div>

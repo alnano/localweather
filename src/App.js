@@ -8,6 +8,8 @@ const Route = ReactRouter.Route;
 const Switch = ReactRouter.Switch;
 const Header = require('./components/Header')
 const Forcast = require('./components/Forcast')
+const Details = require('./components/Details')
+
 
 class App extends Component {
   render() {
@@ -17,7 +19,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path='/forcast' component={Forcast} />
-
+          <Route path='/details' component={Details} />
         </Switch>
         </div>
      </Router>
