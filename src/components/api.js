@@ -22,6 +22,7 @@ function sortData(response){
   return obj
 
 }
+
 function currentDay (response){
   const obj = {
     location: response.data.name,
@@ -32,6 +33,14 @@ function currentDay (response){
   }
 
   return obj;
+}
+
+function currentWeek(response){
+  const obj ={
+    testObj : response
+  }
+
+  return obj
 }
 
 
@@ -47,6 +56,35 @@ const greed = 'sanjose' //test
 
 }
 
-  module.exports = get;
+function getWeek(city){
+  const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=8bc3501661eec87a72083fb24929095f`
+
+  return axios.get(url)
+    .then(currentWeek)
+  
+}
+
+function complie(city){
+ 
+  return axios.all(
+    [get(city),
+    getWeek(city)])
+      .then(function(data){
+        const currentDay = data[0]
+        const week = data[1]
+
+        const weatherObj ={
+          currentDay : currentDay,
+          week : week
+        }
+        return weatherObj
+        // return data
+      })
+    
+}
+
+
+
+  module.exports = complie;
 
   // http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID={ea54078d815d4074962943a634030ac8}

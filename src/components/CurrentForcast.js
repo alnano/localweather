@@ -3,7 +3,7 @@ const axios = require('axios');
 const api = require('../components/api')
 const queryString = require('query-string')
 const Link = require('react-router-dom').Link;
-const Details =require('../components/Details');
+// const Details =require('../components/Details');
 const date = new Date();
   date.setHours(0,0,0,0);
 const betterWay = JSON.stringify(date)
@@ -40,24 +40,27 @@ class CurrentForcast extends React.Component {
     const city1 = this.props.search.query.location
     api(city1)
       .then((response) => {
-        console.log(response);
+        console.log(response.week);
         return response;
         // console.table('log',response)
       })
-      .then((response) => {
-        this.setState({ 
-          query: city1, 
-          humidity: response.humidity,
-          location: response.location,
-          maxTemp: response.maxTemp,
-          minTemp: response.minTemp,
-          status: response.status,
+      // .then((response) => {
+      //   this.setState({ 
+      //     query: city1, 
+      //     humidity: response.humidity,
+      //     location: response.location,
+      //     maxTemp: response.maxTemp,
+      //     minTemp: response.minTemp,
+      //     status: response.status,
 
-                })
-        console.log('***', this.state)
-      })
+      //           })
+      //   console.log('***', this.state)
+      //}) // change this to render 
     console.log(city1)
 
+  }
+  componentWillMount(){
+    // this.searchWeather()
   }
  
 
@@ -67,7 +70,9 @@ class CurrentForcast extends React.Component {
       return (
         <div>
           <button onClick={this.searchWeather}> testt </button>
-          <Link to={{pathname: '/details'}}>
+          <Link to={{pathname: '/details',
+                      state: this.state
+                    }}>
               <h2>{betterWay}</h2>
               <h1>{this.state.status}</h1>
           

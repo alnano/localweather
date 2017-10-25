@@ -1,8 +1,9 @@
 const React = require('react');
-const axios = require('axios');
-const api = require('../components/api');
+// const axios = require('axios'); //possible delte
+// const api = require('../components/api'); //dele
 const queryString = require('query-string');
 const CurrentForcast = require('../components/CurrentForcast');
+const WeeklyForcast = require('../components/WeeklyForcast');
 //ajax requets 
 
 
@@ -57,15 +58,17 @@ class Forcast extends React.Component{
       this.searchWeather()
       return false
     }
-    console.log(this.state.query)
+    
   }
 
 
   render(){
    
    return(
-
-     <CurrentForcast search={this.state} />
+    <div>
+      <CurrentForcast search={this.state} />
+      <WeeklyForcast search={this.state}  />
+    </div>
    )  
   }
 

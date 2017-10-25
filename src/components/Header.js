@@ -1,10 +1,10 @@
 const React = require('react');
-const axios = require('axios');
+// const axios = require('axios'); //possible delete
 const Link = require('react-router-dom').Link;
-const get = require('../components/api')
-const Forcast = require('../components/Forcast')
-const queryString = require('query-string')
-const CurrentForcast = require('../components/CurrentForcast');
+// const get = require('../components/api') //dele
+// const Forcast = require('../components/Forcast') // delde
+// const queryString = require('query-string') // dele
+// const CurrentForcast = require('../components/CurrentForcast'); // dele
 
 
 class Header extends React.Component {
