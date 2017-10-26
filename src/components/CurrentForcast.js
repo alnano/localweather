@@ -8,15 +8,6 @@ const date = new Date();
   date.setHours(0,0,0,0);
 const betterWay = JSON.stringify(date)
 
-// class Details extends React.Component{
-//   render(){
-//     return(
-//       <h2>test</h2>
-//     )
-//   }
-// }
-
-
 class CurrentForcast extends React.Component {
   constructor(props) {
     super(props)
@@ -40,36 +31,34 @@ class CurrentForcast extends React.Component {
     const city1 = this.props.search.query.location
     api(city1)
       .then((response) => {
-        console.log(response.week);
+        console.log(response.currentDay);
         return response;
         // console.table('log',response)
       })
-      // .then((response) => {
-      //   this.setState({ 
-      //     query: city1, 
-      //     humidity: response.humidity,
-      //     location: response.location,
-      //     maxTemp: response.maxTemp,
-      //     minTemp: response.minTemp,
-      //     status: response.status,
+      .then((response) => {
+        this.setState({ 
+          query: city1, 
+          humidity: response.currentDay.humidity,
+          location: response.currentDay.location,
+          maxTemp: response.currentDay.maxTemp,
+          minTemp: response.currentDay.minTemp,
+          status: response.currentDay.status,
 
-      //           })
-      //   console.log('***', this.state)
-      //}) // change this to render 
+                })
+        console.log('***', this.state)
+      }) // change this to render 
     console.log(city1)
 
   }
   componentWillMount(){
-    // this.searchWeather()
+    this.searchWeather()
   }
  
 
   render() {
     
-
       return (
         <div>
-          <button onClick={this.searchWeather}> testt </button>
           <Link to={{pathname: '/details',
                       state: this.state
                     }}>

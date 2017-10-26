@@ -21,9 +21,11 @@ class FourDayWeather extends React.Component{
    super(props)
 
    this.state = {
-     data: ''
+     data: '',
+    
    }
    this.ss = this.ss.bind(this)
+   
  }
  
  ss(){
@@ -38,15 +40,30 @@ class FourDayWeather extends React.Component{
    this.ss()
  }
 
+
  render(){
-   console.log(this.state)
+   const stateDataLocation = this.state.data.week.location
+   const fourDayForcast = this.state.data.week.days
+   console.log('++++++',fourDayForcast)
+   const tet = this.state
   return(
     
     <div>
-      {!this.state.data
-      ? <h1>loading</h1>
-      :<h1>{this.state.data.currentDay.location}</h1>
-      }
+     <h1>{stateDataLocation}</h1>
+        {fourDayForcast.map((items, i)=>{
+          return(
+          <div key={i} >
+            <Link to={{
+              pathname: '/details',
+              state: fourDayForcast[i], // this.state
+              
+              }}>
+            <h1>{items.status}</h1>
+            <h1>{items.date}</h1>
+            </Link>
+          </div>
+          )
+        })}
     </div>
   ) 
 }
@@ -92,12 +109,9 @@ class WeeklyForcast extends React.Component{
     
       return(
         <div> 
-          
-
-          <button onClick={this.searhWeekly}> this is redic </button>
-          <h2> test again </h2>
+          <h2> ---- </h2>
           {!this.state
-          ?<h2>loadin</h2>
+          ?<h2>loading</h2>
           :<FourDayWeather data={this.state}/>
           }
         </div >
