@@ -2,6 +2,7 @@ const React = require('react');
 const axios = require('axios');
 const api = require('../components/api')
 const queryString = require('query-string')
+const moment = require('moment');
 const Link = require('react-router-dom').Link;
 
 
@@ -59,7 +60,7 @@ class FourDayWeather extends React.Component{
               
               }}>
             <h1>{items.status}</h1>
-            <h1>{items.date}</h1>
+            <h1>{moment(items.date).format("dddd, MMM, D")}</h1>
             </Link>
           </div>
           )
@@ -106,7 +107,7 @@ class WeeklyForcast extends React.Component{
     if(this.state && this.state.data){
       console.log('ggg', this.state)
     }
-    
+    // console.log('dateeeee', moment().format('LLLL'))
       return(
         <div> 
           <h2> ---- </h2>

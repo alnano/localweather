@@ -3,10 +3,11 @@ const axios = require('axios');
 const api = require('../components/api')
 const queryString = require('query-string')
 const Link = require('react-router-dom').Link;
-// const Details =require('../components/Details');
+const moment = require('moment');
+const WeatherHead = require('../components/WeatherHead');
 const date = new Date();
   date.setHours(0,0,0,0);
-const betterWay = JSON.stringify(date)
+const betterWay = JSON.stringify(date).slice(1,11)
 
 class CurrentForcast extends React.Component {
   constructor(props) {
@@ -56,20 +57,21 @@ class CurrentForcast extends React.Component {
  
 
   render() {
-    
       return (
         <div>
+          
           <Link to={{pathname: '/details',
                       state: this.state
                     }}>
-              <h2>{betterWay}</h2>
-              <h1>{this.state.status}</h1>
+            <h1>{this.state.status}</h1>     
+            <h2>{moment(betterWay).format("dddd, MMM, D")}</h2>
+              
           
           </Link>
+          <WeatherHead status={this.state.status} />
         </div>
       )
   }
 }
 
 module.exports  = CurrentForcast;
-// module.exports = Details;

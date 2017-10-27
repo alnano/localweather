@@ -4,6 +4,7 @@ const React = require('react');
 const queryString = require('query-string');
 const CurrentForcast = require('../components/CurrentForcast');
 const WeeklyForcast = require('../components/WeeklyForcast');
+// const WeatherHead = require('../components/WeatherHead'); // delete
 //ajax requets 
 
 
