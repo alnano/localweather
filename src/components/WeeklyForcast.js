@@ -4,7 +4,7 @@ const api = require('../components/api')
 const queryString = require('query-string')
 const moment = require('moment');
 const Link = require('react-router-dom').Link;
-
+const WeatherHead = require('../components/WeatherHead');
 
 /*
 testObj>data>city>name = san jose
@@ -59,7 +59,7 @@ class FourDayWeather extends React.Component{
               state: fourDayForcast[i], // this.state
               
               }}>
-            <h1>{items.status}</h1>
+              <WeatherHead status={fourDayForcast[i].status}/>
             <h1>{moment(items.date).format("dddd, MMM, D")}</h1>
             </Link>
           </div>
