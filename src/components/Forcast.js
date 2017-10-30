@@ -1,11 +1,7 @@
 const React = require('react');
-// const axios = require('axios'); //possible delte
-// const api = require('../components/api'); //dele
 const queryString = require('query-string');
 const CurrentForcast = require('../components/CurrentForcast');
 const WeeklyForcast = require('../components/WeeklyForcast');
-// const WeatherHead = require('../components/WeatherHead'); // delete
-//ajax requets 
 
 
 
@@ -27,18 +23,7 @@ class Forcast extends React.Component{
     console.log(city)
     console.log(city1)
     this.setState({query: city })
-    // api(city1)
-    //   .then((response)=>{
-    //     console.log(response);
-    //     return response;
-    //     // console.table('log',response)
-    //   })
-    //   .then((response)=>{
-    //     this.setState({query: city1})
-    //     console.log('fffff', this.state)
-    //   })
-      
-
+ 
   }
 
 
@@ -66,9 +51,9 @@ class Forcast extends React.Component{
   render(){
    
    return(
-    <div>
-      <CurrentForcast search={this.state} />
-      <WeeklyForcast search={this.state}  />
+    <div className="container-2">
+      <CurrentForcast classname="box1" search={this.state} />
+      <WeeklyForcast classname="box2" search={this.state}  />
     </div>
    )  
   }

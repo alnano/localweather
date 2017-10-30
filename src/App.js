@@ -14,9 +14,9 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className='container'>
+        <div className='container-1'>
         <Header />
-        <Switch>
+        <Switch >
           <Route path='/forcast' component={Forcast} />
           <Route path='/details' component={Details} />
         </Switch>

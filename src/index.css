@@ -1,7 +1,8 @@
 body {
+  width: 100%;
+  height: 100%;
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
   background-color : teal;
 }
 
@@ -15,10 +16,30 @@ body {
   border: 1px solid #a2a2a2;
   background-color : red;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+ 
 }
 
-.form {
+.container-1 {
+  max-width: 2000px;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+.container-2{
+     display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 50px auto;
+}
 
-
+.container-3{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.date-link{
+  /* no underlin */
 }

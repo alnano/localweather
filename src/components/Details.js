@@ -6,12 +6,11 @@ const CurrentDay = (props)=>{
   console.log('this.props', props)
     return(
       <div> 
-        <h1>{props.info.pic}</h1>
         <h1>{props.info.location}</h1>
         <h1>{props.info.status}</h1>
-        <h1>{props.info.minTemp}</h1>
-        <h1>{props.info.maxTemp}</h1>
-        <h1>{props.info.humidity}</h1>
+        <h1>min temp: {props.info.minTemp}</h1>
+        <h1>max temp: {props.info.maxTemp}</h1>
+        <h1>humidity: {props.info.humidity}</h1>
       </div>
     )
   

@@ -30,6 +30,7 @@ function currentDay (response){
     minTemp: response.data.main.temp_min,
     maxTemp: response.data.main.temp_max,
     humidity: response.data.main.humidity,
+    response1: response
   }
 
   return obj;
@@ -38,13 +39,7 @@ function currentDay (response){
 function currentWeek(response){
   const obj ={
     // location : response.data.city.name,
-    days: [{status: response.data.list[0].weather[0].description,
-            date: response.data.list[0].dt_txt,
-            minTemp: response.data.list[0].main.temp_min,
-            maxTemp: response.data.list[0].main.temp_max,
-            humidity: response.data.list[0].main.humidity,
-            location: response.data.city.name
-            }, 
+    days: [
             {
             status: response.data.list[1].weather[0].description,
             date: response.data.list[1].dt_txt,
@@ -96,8 +91,7 @@ function currentWeek(response){
 
 function get(city){
 const greed = 'sanjose' //test 
-  const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=8bc3501661eec87a72083fb24929095f`
-  const url1 = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=8bc3501661eec87a72083fb24929095f`
+  const url1 = `http://api.openweathermap.org/data/2.5/weather?q=${city}&tye=accurate&APPID=8bc3501661eec87a72083fb24929095f`
   return axios.get(url1)
     .then(currentDay)
 

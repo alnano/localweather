@@ -1,6 +1,6 @@
 const Rain = require('../images/weather-icons/if_cloudy_hr.svg')
 const ClearSky = require("../images/weather-icons/clear_day.svg")
-const Clouds = require("../images/weather-icons/clouds.png")
+const Clouds = require("../images/weather-icons/clouds.svg")
 const Snow = require("../images/weather-icons/snow.svg")
 const React = require('react');
 // import Rain from '../images/weather-icons/if_cloudy_hr.svg'
@@ -38,7 +38,7 @@ class WeatherHead extends React.Component{
     console.log('this.props',this.props) // null
     var weatherLogo = null
     
-    if(this.props.status === 'light rain' || 'rain'){
+    if(this.props.status === 'light rain'){
       weatherLogo = Rain
     }
     if(this.props.status === 'clear sky'){

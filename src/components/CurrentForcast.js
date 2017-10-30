@@ -63,12 +63,13 @@ class CurrentForcast extends React.Component {
           <Link to={{pathname: '/details',
                       state: this.state
                     }}>
-            <h1>{this.state.status}</h1>     
+            
+            <WeatherHead status={this.state.status} />   
             <h2>{moment(betterWay).format("dddd, MMM, D")}</h2>
               
           
           </Link>
-          <WeatherHead status={this.state.status} />
+          
         </div>
       )
   }

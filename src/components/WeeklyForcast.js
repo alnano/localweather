@@ -46,21 +46,20 @@ class FourDayWeather extends React.Component{
    const stateDataLocation = this.state.data.week.location
    const fourDayForcast = this.state.data.week.days
    console.log('++++++',fourDayForcast)
-   const tet = this.state
-  return(
+   return(
     
-    <div>
-     <h1>{stateDataLocation}</h1>
+    <div className="container-2">
+     {<h1>{stateDataLocation}</h1>}
         {fourDayForcast.map((items, i)=>{
           return(
-          <div key={i} >
+          <div classname='fourday' key={i} >
             <Link to={{
               pathname: '/details',
               state: fourDayForcast[i], // this.state
               
               }}>
               <WeatherHead status={fourDayForcast[i].status}/>
-            <h1>{moment(items.date).format("dddd, MMM, D")}</h1>
+            <h1 className="date-link">{moment(items.date).format("dddd, MMM, D")}</h1>
             </Link>
           </div>
           )
@@ -110,7 +109,6 @@ class WeeklyForcast extends React.Component{
     // console.log('dateeeee', moment().format('LLLL'))
       return(
         <div> 
-          <h2> ---- </h2>
           {!this.state
           ?<h2>loading</h2>
           :<FourDayWeather data={this.state}/>
